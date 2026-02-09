@@ -1,17 +1,19 @@
 // Navigation and Mobile Menu Logic
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // Navbar Scroll Effect
     const navbar = document.getElementById('navbar');
-    
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
-            navbar.classList.remove('bg-transparent', 'py-4');
+            navbar.classList.replace('py-4', 'py-2');
+            navbar.classList.add('shadow-md');
+            navbar.classList.remove('shadow-sm');
         } else {
-            navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
-            navbar.classList.add('bg-transparent', 'py-4');
+            navbar.classList.replace('py-2', 'py-4');
+            navbar.classList.add('shadow-sm');
+            navbar.classList.remove('shadow-md');
         }
     });
 
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function toggleMenu() {
         const isClosed = mobileMenu.classList.contains('translate-x-full');
-        
+
         if (isClosed) {
             mobileMenu.classList.remove('translate-x-full');
             mobileMenu.classList.add('active');
@@ -64,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Select elements to animate (e.g., section headers, cards)
     // Adding a specific class dynamically or selecting typical elements
     const animatedElements = document.querySelectorAll('section h2, section p, .bg-white.p-8, .group');
-    
+
     animatedElements.forEach(el => {
         el.classList.add('opacity-0'); // Initially hide
         el.style.animationFillMode = 'forwards';
